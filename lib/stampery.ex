@@ -1,0 +1,2 @@
+defmodule Stampery do
+end
