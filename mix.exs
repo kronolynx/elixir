@@ -21,7 +21,6 @@ defmodule Stampery.Mixfile do
     [
         {:amqp, "~> 0.1.4"},
         {:sha3, "~> 1.0.0", compile: "make"},
-        {:elixir_make, "~> 0.3.0"},
         # msgpackrpc was overriding msgpack proper so I had to override it again to disambiguate
         {:proper, ~r/.*/, [env: :prod, git: "git://github.com/manopapad/proper.git", branch: "master", manager: :rebar, override: true]},
         {:msgpack_rpc, github: "stampery/msgpack-rpc-erlang", tag: "fix/latest-otp"}
