@@ -1,9 +1,0 @@
-%{"amqp": {:hex, :amqp, "0.1.4", "5d9112c3a850234559073c23fda173364dfd11d8ce8d0138cd46f653fdc55f08", [:mix], [{:amqp_client, ">= 3.5.6", [hex: :amqp_client, optional: false]}]},
-  "amqp_client": {:hex, :amqp_client, "3.5.6", "ed7e63122f32af1d503d134e6c1b088a0627e89c6b5c77b92984c841cb0939be", [:rebar], [{:rabbit_common, "3.5.6", [hex: :rabbit_common, optional: false]}]},
-  "hex2bin": {:hex, :hex2bin, "1.0.0", "aac26eab998ae80eacee1c7607c629ab503ebf77a62b9242bae2b94d47dcb71e", [:rebar3], []},
-  "msgpack": {:git, "git://github.com/msgpack/msgpack-erlang.git", "746b462b8261958dbd49c0bb633dd580d44a58de", [tag: "0.2.3"]},
-  "msgpack_rpc": {:git, "https://github.com/stampery/msgpack-rpc-erlang.git", "9b2a3c85b035eda6a8f0f0a5d2890580ed1a67d4", [tag: "fix/latest-otp"]},
-  "proper": {:git, "git://github.com/manopapad/proper.git", "e90343ea01a7cb0d4a18c341c7f7d9e35483d713", [branch: "master"]},
-  "rabbit_common": {:hex, :rabbit_common, "3.5.6", "ad541be86f08cdb1c04320eb4353ad30f25555569c95cc062af28cf79b74d085", [:rebar], []},
-  "ranch": {:git, "git://github.com/extend/ranch.git", "adf1822defc2b7cfdc7aca112adabfa1d614043c", [tag: "1.0.0"]},
-  "sha3": {:hex, :sha3, "1.0.0", "1c488c00d575b560ca36ebafa8ceebf6bbf703e133d3f0d67269d6f1f1f31e51", [:rebar3], [{:hex2bin, "1.0.0", [hex: :hex2bin, optional: false]}]}}
