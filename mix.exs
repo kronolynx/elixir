@@ -3,11 +3,11 @@ defmodule Stampery.Mixfile do
 
   def project do
     [app: :stampery,
-     version: "0.0.1",
-     elixir: "~> 1.1-dev",
+     version: "0.1.0",
+     elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -16,7 +16,8 @@ defmodule Stampery.Mixfile do
   def application do
     [
         mod: {Example, []},
-        applications: [:logger, :sha3, :msgpack_rpc]
+        applications: [:logger, :sha3, :msgpack_rpc, :amqp]
+        # applications: [:logger, :amqp]
     ]
   end
 
@@ -31,7 +32,7 @@ defmodule Stampery.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-        # {:amqp, "~> 0.1.4"},
+        {:amqp, "~> 0.1.4"},
         {:sha3, "~> 1.0.0", override: true, compile: "make"},
         # msgpackrpc was overriding proper in msgpack so I had to include proper here to fix it
         {:proper, ~r/.*/, [env: :prod, git: "git://github.com/manopapad/proper.git", branch: "master", manager: :rebar, override: true]},
