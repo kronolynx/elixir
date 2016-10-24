@@ -40,9 +40,11 @@ Stampery.start
 # Official implementations
 - [NodeJS](https://github.com/stampery/node)
 - [PHP](https://github.com/stampery/php)
-- [Ruby](https://github.com/stampery/ruby)
+- [ruby](https://github.com/stampery/ruby)
 - [Python](https://github.com/stampery/python)
 - [Elixir](https://github.com/stampery/elixir)
+- [Java](https://github.com/stampery/java)
+- [Go](https://github.com/stampery/go)
 
 # Feedback
 
