@@ -1,54 +1,49 @@
 # Stampery
+Elixir client library for [Stampery API](https://stampery.com/api), the blockchain-powered, industrial-scale certification platform.
+
+Seamlessly integrate industrial-scale data certification into your own Elixir apps. The Stampery API adds a layer of transparency, attribution, accountability and auditability to your applications by connecting them to Stampery's infinitely scalable [Blockchain Timestamping Architecture](https://stampery.com/tech).
 
 ## Installation
 
   1. Add stampery to your list of dependencies in mix.exs:
 
         def deps do
-          [{:stampery, github: "stampery/elixir"}]
-        endgithub:
-
-  2. Ensure stampery is started before your application:
-
-        def application do
-          [applications: [:stampery]]
+          [{:stampery, "~> 0.2.0"}]
         end
 
-
-# Usage
+## Usage
 
 ```elixir
-require Stampery
+defmodule Mymodule do
+  use Stampery, {"2f62c715-ad87-4d6e-bf9e-e9f07aa35f1a", :prod}
+  require Logger
 
-Stampery.init "2d4cdee7-38b0-4a66-da87-c1ab05b43768"
+  def on_ready do
+    "Hello, blockchain!"
+    |> hash
+    |> stamp
+  end
 
-Stampery.on :ready , fn _ ->
-    digest = Stampery.hash "Hello, blockchain!"
-    Stampery.stamp digest
+  def on_proof(proof) do
+    Logger.debug "Proof #{inspect proof}"
+  end
 end
-Stampery.on :error, fn err -> IO.puts err end
-Stampery.on :proof, fn [hash, proof] ->
-    IO.puts "\nReceived proof for \n#{hash} \n\nProof"
-    IO.inspect proof
-end
 
-Stampery.start
-
+Mymodule.start()
 ```
 
 
-# Official implementations
+## Client libraries for other platforms
 - [NodeJS](https://github.com/stampery/node)
 - [PHP](https://github.com/stampery/php)
-- [ruby](https://github.com/stampery/ruby)
+- [Ruby](https://github.com/stampery/ruby)
 - [Python](https://github.com/stampery/python)
-- [Elixir](https://github.com/stampery/elixir)
 - [Java](https://github.com/stampery/java)
 - [Go](https://github.com/stampery/go)
 
-# Feedback
+## Feedback
 
-Ping us at support@stampery.com and we’ll help you! 😃
+Ping us at [support@stampery.com](mailto:support@stampery.com) and we will more than happy to help you! 😃
 
 
 ## License
@@ -56,4 +51,4 @@ Ping us at support@stampery.com and we’ll help you! 😃
 Code released under
 [the MIT license](https://github.com/stampery/js/blob/master/LICENSE).
 
-Copyright 2016 Stampery
+Copyright 2016 Stampery, Inc.
