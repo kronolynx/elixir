@@ -23,8 +23,8 @@ defmodule Stampery.Mixfile do
     [{:ex_doc, ">= 0.0.0", only: :dev},
      {:amqp, "~> 0.1.5"},
      {:merkle, "~> 0.2.0"},
-     {:proper, "~> 1.1.1-beta", override: true},
-     {:msgpack_rpc, "~> 0.1.1"},
+     {:proper, "~> 1.1.1-beta",},
+     {:msgpack_rpc, "~> 0.6.4", hex: :msgpack_rpc_erlang},
      {:sha3, "~> 2.0.0"}]
   end
 
