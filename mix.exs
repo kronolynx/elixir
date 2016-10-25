@@ -22,10 +22,10 @@ defmodule Stampery.Mixfile do
   defp deps do
     [{:ex_doc, ">= 0.0.0", only: :dev},
      {:amqp, "~> 0.1.5"},
-     {:sha3, "~> 2.0.0"},
      {:merkle, "~> 0.2.0"},
-     {:proper, ~r/.*/, [env: :prod, git: "git://github.com/manopapad/proper.git", branch: "master", manager: :rebar, override: true]},
-     {:msgpack_rpc, github: "stampery/msgpack-rpc-erlang", tag: "fix/latest-otp"}]
+     {:proper, "~> 1.1.1-beta", override: true},
+     {:msgpack_rpc, "~> 0.1.1"},
+     {:sha3, "~> 2.0.0"}]
   end
 
   defp description do
