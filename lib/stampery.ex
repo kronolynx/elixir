@@ -22,6 +22,7 @@ defmodule Stampery do
     use Merkle, {&Merkle.Mixers.Bin.commutable_sha3_512/2, 64}
   end
 
+  @user_agent "elixir-" <> __MODULE__.Mixfile.project[:version]
   @endpoints %{
     prod: {:"api.stampery.com", 4000},
     beta: {:"api-beta.stampery.com", 4000}
@@ -182,7 +183,7 @@ defmodule Stampery do
     client_id = derive_client(secret)
     with {:ok, pid} <- :msgpack_rpc_client.connect(:tcp, host, port, []),
          {:ok, call_id} <- :msgpack_rpc_client.call_async(
-          pid, :"stampery.3.auth", [client_id, secret]
+          pid, :"stampery.3.auth", [client_id, secret, @user_agent]
          ),
          {:ok, auth} <- :msgpack_rpc_client.join(pid, call_id),
     do: auth && {:ok, pid}
@@ -219,10 +220,10 @@ defmodule Stampery do
     end
   end
 
-  @moduledoc """
-  Rabbit consumer for receiving proofs asynchronously
-  """
   defmodule RabbitConsumer do
+    @moduledoc """
+    Rabbit consumer for receiving proofs asynchronously
+    """
     use GenServer
     use AMQP
     require Logger
