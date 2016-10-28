@@ -15,7 +15,8 @@ Seamlessly integrate industrial-scale data certification into your own Elixir ap
 
 ```elixir
 defmodule Mymodule do
-  use Stampery, {"2f62c715-ad87-4d6e-bf9e-e9f07aa35f1a", :prod}
+  # Sign up and get your secret token at https://api-dashboard.stampery.com
+  use Stampery, {"user-secret", :prod}
   require Logger
 
   def on_ready do
